@@ -35,13 +35,13 @@ void login()
                 cout<<"\nWELCOME"<<user<<"\nLOGIN SUCESS\nWe're glad that you're here.\n";
                 cin.get();
                // cin.get();
-                calc_func();
+                calc_func();return;
                // main();
         }
         else
         {
                 cout<<"\nLOGIN ERROR\nPlease check your username and password\n";
-                main();
+                main();return;
         }
 }
 void registr()
@@ -58,7 +58,7 @@ void registr()
         reg<<reguser<<' '<<regpass<<endl;
         system("cls");
         cout<<"\nRegistration Sucessful\n";
-        main();
+        main();return;
 
 
 }
@@ -98,7 +98,7 @@ void forgot()
                                 cin.get();
                                 cin.get();
                                 system("cls");
-                                main();
+                                main();return;
                         }
                         else
                         {
@@ -106,7 +106,7 @@ void forgot()
                                 cout<<"\nPlease kindly contact your system administrator for more details \n";
                                 cin.get();
                                 cin.get();
-                                main();
+                                main();return ;
                         }
                         break;
                 }
@@ -133,7 +133,7 @@ void forgot()
                                 cin.get();
                                 cin.get();
                                 system("cls");
-                                main();
+                                main();return ;
                         }
                         else
                         {
@@ -141,7 +141,7 @@ void forgot()
                                 cout<<"\nkindly contact your administrator for more information\n";
                                 cin.get();
                                 //cin.get();
-                                main();
+                                main();return;
                         }
 
                         break;
@@ -150,24 +150,24 @@ void forgot()
                 case 3:
                 {
                         cin.get();
-                        main();
+                        main();return;
                 }
                 default:
                         cout<<"Sorry, You entered wrong choice. Kindly try again"<<endl;
-                        forgot();
+                        forgot();return;
         }
 }
 bool check(int p,int d,int k,int & m,int mny,int ins)
 {
     if(k==0 && p==21)
-    {   system("cls");
+    {   //system("cls");
         cout<<"congratulation you r a blackJack"<<endl;
         m=m+1.5*mny;
           cout<<"you have total money: "<<m<<endl;
         return 1;
     }
     else if(k==1 && p>21)
-    {   system("cls");
+    {   //system("cls");
         cout<<"you have been bust\n";
         if(ins!=1)
             m-=mny;
@@ -175,7 +175,7 @@ bool check(int p,int d,int k,int & m,int mny,int ins)
         return 1;
     }
     else if(k==4 &&  d==21)
-    {  system("cls");
+    {  //system("cls");
         cout<<"you have been bust\n";
         if(ins!=1)
             m-=mny;
@@ -187,18 +187,19 @@ bool check(int p,int d,int k,int & m,int mny,int ins)
         cout<<"draw\n"; return 1;
     }
     else if(k==2 && d>21)
-    {   system("cls");
+    {   //system("cls");
         cout<<"you have win\n";
         m+=mny;
           cout<<"you have total money: "<<m<<endl;
         return 1;
     }
     else if(k==2 && d>p && d<=21)
-    {   system("cls");
+    {   //system("cls");
         cout<<"you have lost\n";
         if(ins!=1)
             m-=mny;
         cout<<"you have total money: "<<m<<endl;
+        return 1;
     }
     return 0;
 }
@@ -235,7 +236,7 @@ string c;cin>>c;*/
                 default:
                         system("cls");
                         cout<<"Wrong Choice Intered\n"<<endl;
-                        main();
+                        main();break;
         }
 }
 void calc_func()
@@ -346,11 +347,11 @@ if(total<=0)
     return;
 }
 cout<<"1.PRESS ANY KEY TO PLAY AGAIN\n2.PRESS 2 TO EXIT"<<endl;
-char x;cin>>x;
-if((int)x-'0'==2)
+int x;cin>>x;
+if(x==2)
 {
     cout<<"THANKS FOR PLAYING THE GAME SEE YOU SOON"<<endl;
-    break;
+    return ;
 }
 cin.get();
 }
